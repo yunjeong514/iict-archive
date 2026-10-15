@@ -1,0 +1,174 @@
+```css
+/* 전체 요소의 크기 계산 방식을 통일 */
+* {
+  box-sizing: border-box;
+}
+
+/* 페이지 전체 기본 스타일 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 60px 20px;
+
+  background-color: #9fc5ff;
+
+  /* 키치한 도트 배경 */
+  background-image:
+    radial-gradient(circle at 20% 20%, #ffe66d 0 7px, transparent 8px),
+    radial-gradient(circle at 80% 30%, #2457ff 0 6px, transparent 7px),
+    radial-gradient(circle at 30% 80%, #ffffff 0 5px, transparent 6px);
+
+  background-size: 130px 130px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2140;
+}
+
+/* 아카이브 전체를 감싸는 메인 박스 */
+.archive {
+  width: min(800px, 100%);
+  margin: 0 auto;
+  padding: 55px 45px;
+
+  background-color: #f8fbff;
+  border: 4px solid #2457ff;
+  border-radius: 28px;
+
+  /* 겹쳐진 스티커처럼 보이는 그림자 */
+  box-shadow:
+    10px 10px 0 #6f8fff,
+    18px 18px 0 #ffe66d;
+}
+
+/* 가장 큰 제목 */
+.archive-title {
+  margin: 0;
+
+  font-size: clamp(48px, 9vw, 90px);
+  line-height: 0.95;
+  letter-spacing: -4px;
+
+  color: #2457ff;
+
+  /* 제목에 입체감 추가 */
+  text-shadow:
+    3px 3px 0 #ffffff,
+    6px 6px 0 #ffe66d;
+
+  word-break: keep-all;
+}
+
+/* 제목 아래 한 줄 소개 */
+.archive-description {
+  display: inline-block;
+
+  margin: 35px 0 45px;
+  padding: 10px 18px;
+
+  background-color: #ffe66d;
+  border: 2px solid #1f2140;
+  border-radius: 100px;
+
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* 과제 목록 기본 설정 */
+.assignment-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* 각각의 과제 카드 */
+.assignment-item {
+  margin-bottom: 18px;
+}
+
+/* 과제 링크 */
+.assignment-item a {
+  display: block;
+
+  padding: 24px 25px;
+
+  background-color: #86a8ff;
+  border: 3px solid #1f2140;
+  border-radius: 18px;
+
+  color: #1f2140;
+
+  font-size: 21px;
+  font-weight: bold;
+  text-decoration: none;
+
+  box-shadow: 6px 6px 0 #1f2140;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* 마우스를 올렸을 때 */
+.assignment-item a:hover {
+  background-color: #ffe66d;
+
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 #1f2140;
+}
+
+/* 키보드로 링크를 선택했을 때 */
+.assignment-item a:focus-visible {
+  outline: 4px solid #2457ff;
+  outline-offset: 4px;
+}
+
+/* 마지막 과제 아래의 불필요한 여백 제거 */
+.assignment-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 휴대폰 화면에서 레이아웃이 깨지지 않도록 조정 */
+@media (max-width: 600px) {
+
+  body {
+    padding: 30px 16px;
+
+    /* 모바일에서는 배경 무늬를 조금 촘촘하게 */
+    background-size: 100px 100px;
+  }
+
+  .archive {
+    padding: 38px 22px;
+
+    border-width: 3px;
+    border-radius: 22px;
+
+    box-shadow:
+      6px 6px 0 #6f8fff,
+      11px 11px 0 #ffe66d;
+  }
+
+  .archive-title {
+    font-size: clamp(44px, 15vw, 65px);
+    letter-spacing: -3px;
+  }
+
+  .archive-description {
+    margin: 28px 0 35px;
+    padding: 9px 14px;
+
+    font-size: 14px;
+  }
+
+  .assignment-item a {
+    padding: 20px 18px;
+
+    font-size: 17px;
+    line-height: 1.4;
+
+    box-shadow: 4px 4px 0 #1f2140;
+  }
+}
